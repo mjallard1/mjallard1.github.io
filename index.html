@@ -7,58 +7,8 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel='stylesheet' href='styles.css' />
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
-		<script type="text/javascript" >
-			let counter = 0;
-			
-			function count() {
-			  counter++
-			  document.getElementById('normal').innerHTML = counter;
-			  document.getElementById('double').innerHTML = counter * Math.PI
-			}
-			
-			function reset() {
-			  counter = 0;
-			  let ps = document.querySelectorAll('p');
-			  ps.forEach((p) => {
-			  	p.innerHTML = 0;
-			  })
-			}
-			
-			function getPokemon() {
-				const id = Math.floor(Math.random() * 150)
-				fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-  				.then(response => response.json())
-  				.then(data => {
-  					const a = document.createElement('a')
-  					const li = document.createElement('li')
-  					const img = document.createElement('img')
-  					
-  					const pokemon = data.forms[0]
-  					const imgurl = data.sprites.front_default
-  					
-  					img.setAttribute('src', imgurl)
-  					img.setAttribute('alt', pokemon.name)
-  					a.setAttribute('href', pokemon.url)
-  					a.append(img)
-  					li.append(a)
-  					document.getElementById('pokemon').append(li);
-  				});
-			}
-		
-		</script>
 	</head>
 	<body>
-		<div>
-			<p id="normal">0</p> x &pi; = <p id="double">0</p>
-		</div>
-		<div>
-			<button onclick="count()">count</button>
-			<button onclick="reset()">reset</button>
-		</div>
-		<div>
-			<button onclick="getPokemon()">Wie is deze pokemon?</button>
-			<ol id="pokemon"></ol>
-		</div>
 	</body>
 </html>
 	
